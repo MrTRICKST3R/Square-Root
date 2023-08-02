@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {font-size:50px; font-family:Courier New;}
+        body {background-color:rgb(93, 219, 253)}
+        h1 {background-color:rgb(253, 116, 42); color:black; width:50%; border-radius:30px;}
+    </style>
+    <script>
+        function find()
+        {
+            event.preventDefault();
+            let num = document.getElementById("num");
+            let ans = document.getElementById("ans");
+
+            if (num.value == "")
+            {
+                alert("Number is Blank");
+                ans.innerHTML = "";
+                num.focus();
+                return;
+            }
+            let n = parseFloat(num.value);
+            if (n < 0.0)
+            {
+                alert("Negative number not allowed");
+                ans.innerHTML = "";
+                num.focus();
+                num.value = "";
+                return;
+            }
+            let r = Math.sqrt(n);
+            let msg = "sqrt = " + r.toFixed(2);
+            ans.innerHTML= msg;
+        }
+    </script>
+    <title> Square Root Finder BY AYUSH </title>
+</head>
+<body>
+<center>
+        <h1>Square Root Finder </h1>
+        <form onsubmit="find()">
+        <input type="number" step="any" placeholder="Enter a number" id="num"/>
+        <br><br>
+        <input type="submit" value="Find Square Root"/>
+        </form>
+        <h2 id="ans"/>
+</center>
+</body>
+</html>
